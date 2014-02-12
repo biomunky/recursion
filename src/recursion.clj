@@ -115,8 +115,9 @@
 (defn my-frequencies [a-seq]
   (my-frequencies-helper {} a-seq))
 
+;; mapcat is cheating - could not cheat and do apply concat ...
 (defn un-frequencies [a-map]
-  (mapcat (fn [[k v]] (repeat v k)) (seq a-map)))
+  (mapcat (fn [[k v]] (repeat v k)) a-map))
 
 (defn my-take [n coll]
   (if (or (empty? coll) (== 0 n)) ()
